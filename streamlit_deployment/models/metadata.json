@@ -1,0 +1,25 @@
+{
+  "model_version": "2.0_improved",
+  "training_date": "2025-01-13",
+  "visibility_threshold": 2.03555317825,
+  "pawc_cap": 68.632572735,
+  "stage1_accuracy": 0.979,
+  "stage1_roc_auc": 0.9986773333333333,
+  "stage1_f1_score": 0.9579158316633266,
+  "stage1_cv_auc_mean": 0.9981733174777616,
+  "stage1_cv_auc_std": 0.00034795668822382164,
+  "stage2_rmse": 16.81969243728181,
+  "stage2_r2": 0.2660168655215951,
+  "stage2_spearman": 0.3264763802884849,
+  "n_features_stage1": 48,
+  "n_features_stage2": 50,
+  "n_training_samples": 4996,
+  "visible_ratio": 0.25,
+  "model_type": "ensemble",
+  "ensemble_models": [
+    "XGBoost",
+    "LightGBM"
+  ],
+  "stage1_estimators": 2,
+  "stage2_estimators": 300
+}

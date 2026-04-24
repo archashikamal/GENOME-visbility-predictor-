@@ -3,6 +3,7 @@ import pickle
 import pandas as pd
 import numpy as np
 import requests
+import os
 from bs4 import BeautifulSoup
 import plotly.graph_objects as go
 import plotly.express as px
@@ -43,16 +44,17 @@ st.markdown("""
 # Load models and configs
 @st.cache_resource
 def load_models():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
     try:
-        with open('models/ensemble_classifier.pkl', 'rb') as f:
+        with open(os.path.join(base_dir, 'models', 'ensemble_classifier.pkl'), 'rb') as f:
             clf = pickle.load(f)
-        with open('models/stage2_regressor.pkl', 'rb') as f:
+        with open(os.path.join(base_dir, 'models', 'stage2_regressor.pkl'), 'rb') as f:
             reg = pickle.load(f)
-        with open('models/features_config.pkl', 'rb') as f:
+        with open(os.path.join(base_dir, 'models', 'features_config.pkl'), 'rb') as f:
             features = pickle.load(f)
-        with open('models/metadata.pkl', 'rb') as f:
+        with open(os.path.join(base_dir, 'models', 'metadata.pkl'), 'rb') as f:
             metadata = pickle.load(f)
-        with open('data/feature_standards.pkl', 'rb') as f:
+        with open(os.path.join(base_dir, 'data', 'feature_standards.pkl'), 'rb') as f:
             standards = pickle.load(f)
         return clf, reg, features, metadata, standards
     except Exception as e:
